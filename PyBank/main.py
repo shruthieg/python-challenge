@@ -21,17 +21,14 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
         change.append(revenue[i] - revenue[i-1])
     print("change between months = "+str(change))
     print("average change =" +str(sum(change)/(len(months)-1)))
-    print(max(change))
-    print(months[(change.index(max(change)))+1])
+    #print(max(change))
+    #print(months[(change.index(max(change)))+1])
     print("greatest increase in profits (date and amount) over the entire period : " +str(months[(change.index(max(change)))+1]) +  ":"  +str(max(change)))
-    print(min(change))  
-    print(months[(change.index(min(change)))+1])
+    #print(min(change))  
+    #print(months[(change.index(min(change)))+1])
     print("greatest increase in profits (date and amount) over the entire period : " +str(months[(change.index(min(change)))+1]) +  ": ("  +str(min(change))+")") 
-       
-       
-        #row1(0)=0
-    #print("average change in Profit/Losses between months over the peiod"
-
-       #print(string.count(row[0]))
-       #print(string.count("geeks"))
+#output = out_fun():
+    #file = open("output.txt","w")
+    #file.write(output)
+    #file.close()
 
