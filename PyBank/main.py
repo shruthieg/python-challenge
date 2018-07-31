@@ -27,7 +27,7 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
     #print(min(change))  
     #print(months[(change.index(min(change)))+1])
     print("greatest increase in profits (date and amount) over the entire period : " +str(months[(change.index(min(change)))+1]) +  ": ("  +str(min(change))+")") 
-#output = out_fun():
+    #def out_fun()
     #file = open("output.txt","w")
     #file.write(output)
     #file.close()
