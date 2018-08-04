@@ -16,9 +16,10 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
     candidate_dict = {}
     winner = ""
     winning_votes = 0
-    #name_percent= {}
+    
     # skip header
     next(csvreader)
+
     # getting total votes and candiate names
     for row in csvreader:
         total_votes += 1
@@ -31,8 +32,7 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
         # add vote to candidate
         candidate_dict[row[2]] = candidate_dict[row[2]] + 1
 
-    #print(candidates)
-    #print(candidate_dict)
+    #printing results
 
     print("Election Results")
     print("-----------------------------")
@@ -47,6 +47,8 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
         if votes > winning_votes:
             winning_votes = votes
             winner = candidate
+    
+    #printing winner
     print("-----------------------------")
     print('Winner is: ' + winner + ' (' + str(winning_votes) + ')')
 
@@ -67,26 +69,8 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
             winner = candidate
     new_file.write("------------------------------------- \n")        
     new_file.write('Winner is: ' + winner + ' (' + str(winning_votes) + ')''\n')
+    
+    #closing of file
     new_file.close()
-
-    #filewriter = open(write_file, mode = 'w')
-    #with open(filewriter, 'w', newline='') as txtfile:
-        #filewriter.write("-----------------------------")
-        ##filewriter.write("--------------------------\n")
-        #filewriter.write(f"Total Votes: +str(total_votes)\n")
-        #filewriter.write("---------------------------\n")
-        #filewriter.write('Winner: ' + winner + ' (' + str(winning_votes) + ')')
-        #filewriter.write("---------------------------\n")
-    #close file
-    #filewriter.close()
-    
-    
-    
-
-
-
-#newfile = open("output\results.txt, "w")
-    
-
 
     
