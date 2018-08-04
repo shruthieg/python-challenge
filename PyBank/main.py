@@ -14,12 +14,14 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
     for row in csvreader:
         months.append(row[0])
         revenue.append(int(row[1]))
+    print("---------------------")
     print("FINANCIAL ANALYSIS")
+    print("---------------------")
     print("total number of months = "+str(len(months)))
     print("total net amount of profit/losses = " +str(sum(revenue)))
     for i in range(1,len(revenue)):
         change.append(revenue[i] - revenue[i-1])
-    print("change between months = "+str(change))
+    #print("change between months = "+str(change))
     print("average change =" +str(sum(change)/(len(months)-1)))
     #print(max(change))
     #print(months[(change.index(max(change)))+1])
@@ -27,6 +29,22 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
     #print(min(change))  
     #print(months[(change.index(min(change)))+1])
     print("greatest increase in profits (date and amount) over the entire period : " +str(months[(change.index(min(change)))+1]) +  ": ("  +str(min(change))+")") 
+    
+    #getting a text file
+    new_file = open("results.txt", "w")
+
+# writing the new file
+    new_file.write("FINANCIAL ANALYSIS \n")
+    new_file.write("------------------------------------- \n")
+    new_file.write("total number of months = " +str(len(months)) +"\n")
+    new_file.write("total net amount of profit/losses = " +str(sum(revenue)) +"\n")
+    for i in range(1,len(revenue)):
+        change.append(revenue[i] - revenue[i-1])
+    new_file.write("average change =" +str(sum(change)/(len(months)-1)) +"\n")
+    new_file.write("greatest increase in profits (date and amount) over the entire period : " +str(months[(change.index(max(change)))+1]) +  ":"  +str(max(change)) +"\n")
+    new_file.write("greatest increase in profits (date and amount) over the entire period : " +str(months[(change.index(min(change)))+1]) +  ": ("  +str(min(change))+")" +"\n")
+    new_file.close()
+    
     #def out_fun()
     #file = open("output.txt","w")
     #file.write(output)

@@ -28,42 +28,58 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
             candidates.append(row[2])
             # keep track of candiate votes
             candidate_dict[row[2]] = 0
-        # add vote to candiadate
+        # add vote to candidate
         candidate_dict[row[2]] = candidate_dict[row[2]] + 1
 
-    print(candidates)
-    print(candidate_dict)
+    #print(candidates)
+    #print(candidate_dict)
 
-    print("Vote Results")
+    print("Election Results")
     print("-----------------------------")
     print("Total number of votes: " +str(total_votes))
     print("-----------------------------")
+
+    #to get the percentage of votes and corresponding names
     for candidate in candidate_dict:
         votes = candidate_dict.get(candidate)
         percentage = votes / total_votes
-        print(candidate + ' ' + str(round(percentage,3)*100) + ': (' + str(votes) + ')')
+        print(candidate + ':' + str(round(percentage,2)*100) + ' : (' + str(votes) + ')')
         if votes > winning_votes:
             winning_votes = votes
             winner = candidate
+    print("-----------------------------")
+    print('Winner is: ' + winner + ' (' + str(winning_votes) + ')')
 
-    print('Winner: ' + winner + ' (' + str(winning_votes) + ')')
-# #to get the percent of votes of each candidate
-#     for i in candidates: 
-#         #(candidates[i]/votes)*100
-#         percent.append(round((candidates[i]/votes)*100,3))
-#     print(percent)
-#     print("Winner is :" +str(max(percent)))
-#     maximum = max(candidates, key = candidates.get)
-#     print(maximum,candidates[maximum])
-#     for key, value, in candidates.items():
-#         print(key + ": "  + " (" + str(value) + ")")
+    #getting a text file
+    new_file = open("results_1.txt", "w")
+
+# writing the new file
+    new_file.write("Election Results \n")
+    new_file.write("------------------------------------- \n")
+    new_file.write("Total Votes: " +str(total_votes) + "\n")
+    new_file.write("------------------------------------- \n")
+    for candidate in candidate_dict:
+        votes = candidate_dict.get(candidate)
+        percentage = votes / total_votes
+        new_file.write(candidate + ':' + str(round(percentage,2)*100) + ' : (' + str(votes) + ')''\n')
+        if votes > winning_votes:
+            winning_votes = votes
+            winner = candidate
+    new_file.write("------------------------------------- \n")        
+    new_file.write('Winner is: ' + winner + ' (' + str(winning_votes) + ')''\n')
+    new_file.close()
+
+    #filewriter = open(write_file, mode = 'w')
+    #with open(filewriter, 'w', newline='') as txtfile:
+        #filewriter.write("-----------------------------")
+        ##filewriter.write("--------------------------\n")
+        #filewriter.write(f"Total Votes: +str(total_votes)\n")
+        #filewriter.write("---------------------------\n")
+        #filewriter.write('Winner: ' + winner + ' (' + str(winning_votes) + ')')
+        #filewriter.write("---------------------------\n")
+    #close file
+    #filewriter.close()
     
-    #text_file = open("write_it.txt", "w")
-    #lines = ["Line 1\n",
-       #"This is line 2\n",
-       #"That makes this line 3\n"]
-    #text_file.writelines(lines)
-    #text_file.close()
     
     
 
