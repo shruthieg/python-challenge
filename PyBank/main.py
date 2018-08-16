@@ -5,7 +5,7 @@ import math
 
 # get csv path
 from pathlib import Path
-filepath = Path("C:\\Users\Shruthi\\python-challenge\\PyBank\\budget_data.csv")
+filepath = Path("budget_data.csv")
 
 # read csv
 with open(filepath, newline="",encoding='utf-8') as csvfile:
@@ -29,7 +29,7 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
     print("FINANCIAL ANALYSIS")
     print("---------------------")
     print("total number of months = "+str(len(months)))
-    print("total net amount of profit/losses = " +str(sum(revenue)))
+    print("total net amount of profit/losses = $" +str(sum(revenue)))
 
     #difference between months and average difference
     for i in range(1,len(revenue)):
@@ -45,7 +45,7 @@ with open(filepath, newline="",encoding='utf-8') as csvfile:
     new_file.write("FINANCIAL ANALYSIS \n")
     new_file.write("------------------------------------- \n")
     new_file.write("total number of months = " +str(len(months)) +"\n")
-    new_file.write("total net amount of profit/losses = " +str(sum(revenue)) +"\n")
+    new_file.write("total net amount of profit/losses = $" +str(sum(revenue)) +"\n")
     for i in range(1,len(revenue)):
         change.append(revenue[i] - revenue[i-1])
     new_file.write("average change =" +str(sum(change)/(len(months)-1)) +"\n")

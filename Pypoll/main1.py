@@ -5,7 +5,7 @@ import math
 
 # get csv path
 from pathlib import Path
-filepath = Path("C:\\Users\\Shruthi\\python-challenge\\Pypoll\\election_data.csv")
+filepath = Path("election_data.csv")
 
 # read csv
 with open(filepath, newline="",encoding='utf-8') as csvfile:
